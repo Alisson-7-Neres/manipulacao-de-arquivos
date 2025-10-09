@@ -31,16 +31,17 @@ public class Main {
 	}
 	
 	public static void create() throws InterruptedException {
-		Scanner input = new Scanner(System.in);
-		//System.out.printf("Local onde vai ser criado\n-> " + "/home/" + System.getProperty("user.name") + "/" );
-		//String path = input.nextLine();
+		Scanner inputCreate = new Scanner(System.in);
 		System.out.printf("Nome do arquivo\n-> ");
-		String name = input.nextLine();
+		String name = inputCreate.nextLine();
 		manipulacaoService.create(name);
 	}
 	
-	public static void remove() {
-		
+	public static void remove() throws InterruptedException {
+		Scanner inputRemove = new Scanner(System.in);
+		System.out.println("Qual arquivo deseja excluir? ");
+		String remove = inputRemove.nextLine();
+		manipulacaoService.remove(remove);
 	}
 	
 	public static void find() {

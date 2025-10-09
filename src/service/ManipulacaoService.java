@@ -31,9 +31,23 @@ public class ManipulacaoService implements ManipulacaoIterface {
 	}
 
 	@Override
-	public String delete() {
-		// TODO Auto-generated method stub
-		return null;
+	public String remove(String file) throws InterruptedException {
+		String originPath = System.getProperty("user.dir");
+		Path path = Paths.get(file + ".txt");
+		if(new File(originPath + "/" + file + ".txt").isFile()) {
+			try {
+				Files.delete(path);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else if (new File(originPath + "/" + file + ".txt").isFile()) {
+				System.err.println("Não foi possível excluir o arquivo! '" + file + "'");
+		} 
+		else {
+			System.err.println("Nome do arquivo incorreto ou arquivo inexistente!"); 
+			Main.menuOption();
+		}
+		return "Arquivo deletado com sucesso!";
 	}
 
 	@Override

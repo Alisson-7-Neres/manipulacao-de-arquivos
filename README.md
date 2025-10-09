@@ -1,7 +1,8 @@
 - Manipulação de arquivos através do prompt
 
 - [X] Criar 
-- [] Remover 
+- [X] Remover 
+- [] Listar tudo
 - [] Procurar
 - [] Procurar palavras
 - [] Substituir palavras
