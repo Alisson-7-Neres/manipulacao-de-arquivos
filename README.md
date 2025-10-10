@@ -2,7 +2,7 @@
 
 - [X] Criar 
 - [X] Remover 
-- [] Listar tudo
+- [X] Listar tudo
 - [] Procurar
 - [] Procurar palavras
 - [] Substituir palavras

@@ -52,7 +52,18 @@ public class ManipulacaoService implements ManipulacaoIterface {
 
 	@Override
 	public String findAll() {
-		// TODO Auto-generated method stub
+		String originPath = System.getProperty("user.dir");
+		File directory = new File(originPath);
+		File[] files = directory.listFiles(); // Pegando os arquivos do diretorio originPath
+		int count = 0;
+		System.out.println("#####Arquivos#####");
+		if (directory != null) {
+			for (File runFile: files) {
+				if(runFile.toString().contains(".txt")) { // Pegando apenas arquivos com extensão '.txt'
+				System.out.println(++count + ". " + runFile.getName());
+				}
+			}
+		}
 		return null;
 	}
 

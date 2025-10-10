@@ -16,8 +16,9 @@ public class Main {
 		System.out.println("---Menu---\nSelecione uma opção:");
 		System.out.printf("1 - Criar arquivo" +
 						   "\n2 - Deletar arquivo" +
-						   "\n3 - Procurar" +
-						   "\n4 - Sair" +
+						   "\n3 - Listar todos os arquivos" +
+						   "\n4 - Procurar" +
+						   "\n5 - Sair" +
 						    "\n-> ");
 		int selected = inputOption.nextInt();
 		MenuOption selectedOption = MenuOption.values()[selected - 1];
@@ -25,6 +26,7 @@ public class Main {
 		switch(selectedOption) {
 		case CREATE -> create();
 		case REMOVE -> remove();
+		case FINDALL -> findAll();
 		case FIND -> find();
 		case EXIT -> System.exit(0);
 		}
@@ -42,6 +44,10 @@ public class Main {
 		System.out.println("Qual arquivo deseja excluir? ");
 		String remove = inputRemove.nextLine();
 		manipulacaoService.remove(remove);
+	}
+	
+	public static void findAll() {
+		manipulacaoService.findAll();
 	}
 	
 	public static void find() {
