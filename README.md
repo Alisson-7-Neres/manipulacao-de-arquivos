@@ -3,6 +3,6 @@
 - [X] Criar 
 - [X] Remover 
 - [X] Listar tudo
-- [] Procurar
+- [X] Procurar
 - [] Procurar palavras
 - [] Substituir palavras

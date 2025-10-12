@@ -66,5 +66,20 @@ public class ManipulacaoService implements ManipulacaoIterface {
 		}
 		return null;
 	}
+	
+	@Override
+	public void find(String file) throws InterruptedException {
+		String originPath = System.getProperty("user.dir");
+		File diretory = new File(originPath);
+		File[] files = diretory.listFiles();
+		if (diretory != null) {
+			for (File runFile : files) {
+				if (runFile.toString().contains(file + ".txt")) {
+					System.out.println("Arquivo encontrado!\n" + runFile.getName());
+					Main.menuOption();
+				} 
+			} 
+		} 
+	}
 
 }

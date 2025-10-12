@@ -50,8 +50,11 @@ public class Main {
 		manipulacaoService.findAll();
 	}
 	
-	public static void find() {
-		
+	public static void find() throws InterruptedException {
+		Scanner inputFile = new Scanner(System.in);
+		System.out.println("Qual o nome do arquivo: ");
+		String file = inputFile.nextLine();
+		manipulacaoService.find(file);
 	}
 }
 
