@@ -1,6 +1,8 @@
 package service;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -80,6 +82,24 @@ public class ManipulacaoService implements ManipulacaoIterface {
 				} 
 			} 
 		} 
+	}
+	
+	@Override
+	@SuppressWarnings("resource")
+	public void write(String file) throws InterruptedException {
+		try {
+			String originPath = System.getProperty("user.dir");
+			File diretory = new File(originPath);
+			BufferedWriter writer = new BufferedWriter(new FileWriter(diretory + "/" + file + ".txt", true));
+			System.out.printf("-> ");
+			java.util.Scanner input = new java.util.Scanner(System.in);
+			String text = input.nextLine();
+			writer.write(text);
+			writer.close();
+			Main.menuOption();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

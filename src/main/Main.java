@@ -5,6 +5,7 @@ import java.util.Scanner;
 import model.MenuOption;
 import service.ManipulacaoService;
 
+@SuppressWarnings("resource")
 public class Main {
 	static ManipulacaoService manipulacaoService = new ManipulacaoService();
 	public static void main(String... args) throws InterruptedException {
@@ -18,7 +19,8 @@ public class Main {
 						   "\n2 - Deletar arquivo" +
 						   "\n3 - Listar todos os arquivos" +
 						   "\n4 - Procurar" +
-						   "\n5 - Sair" +
+						   "\n5 - Escrever" +
+						   "\n6 - Sair" +
 						    "\n-> ");
 		int selected = inputOption.nextInt();
 		MenuOption selectedOption = MenuOption.values()[selected - 1];
@@ -28,6 +30,7 @@ public class Main {
 		case REMOVE -> remove();
 		case FINDALL -> findAll();
 		case FIND -> find();
+		case WRITE -> write();
 		case EXIT -> System.exit(0);
 		}
 	}
@@ -55,6 +58,15 @@ public class Main {
 		System.out.println("Qual o nome do arquivo: ");
 		String file = inputFile.nextLine();
 		manipulacaoService.find(file);
+	}
+	
+	public static void write() throws InterruptedException {
+		findAll();
+		Scanner inputFile = new Scanner(System.in);
+		System.out.println("Qual o nome do arquivo: ");
+		String file = inputFile.nextLine();
+		//manipulacaoService.find(file);
+		manipulacaoService.write(file);
 	}
 }
 

@@ -4,5 +4,6 @@
 - [X] Remover 
 - [X] Listar tudo
 - [X] Procurar
+- [X] Escrever no arquivo
 - [] Procurar palavras
 - [] Substituir palavras
