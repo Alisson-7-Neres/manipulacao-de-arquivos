@@ -5,6 +5,7 @@ public enum MenuOption {
 	REMOVE,
 	FINDALL,
 	FIND,
+	FINDWORD,
 	WRITE,
 	EXIT
 }
