@@ -5,5 +5,5 @@
 - [X] Listar tudo
 - [X] Procurar
 - [X] Escrever no arquivo
-- [] Procurar palavras
+- [X] Procurar palavras
 - [] Substituir palavras
