@@ -147,5 +147,46 @@ public class ManipulacaoService implements ManipulacaoIterface {
 			e.printStackTrace();
 		}
 	}
+	
+	private void replaceInFile(Path file, String word, String replace) throws IOException {
+		// Lê todo o conteúdo do arquivo
+		String content = Files.readString(file, Charset.forName("UTF-8"));
+		
+		// Verifica se contém a palavra
+		if(!content.contains(word) ) {
+			return;
+		}
+		
+		// Substitui
+		//content = content.replace(word, replacement);
+		content = content.replaceAll("\\b" + word + "\\b", replace);
+		
+		// Escreve de volta no arquivo
+		Files.writeString(file, content, Charset.forName("UTF-8"));
+		
+		System.out.println("Substituição feita em:  " + file.toAbsolutePath());
+	}
+	
+	@Override
+	public void replace(String word, String replace) throws InterruptedException, IOException {
+			String originPath = System.getProperty("user.dir");
+			Path diretory = Paths.get(originPath);
+	
+			try (Stream<Path> stream = Files.walk(diretory)) {
+		        stream
+	            .filter(path -> path.toString().endsWith(".txt")) // só arquivos
+	            .forEach(file -> {
+					try {
+						replaceInFile(file, word, replace);
+						
+					} catch (IOException e) {
+						System.err.println("Erro ao processar: " + file);
+						e.printStackTrace();
+					}
+				});
+	    } catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
 
 }

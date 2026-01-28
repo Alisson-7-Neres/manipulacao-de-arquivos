@@ -10,5 +10,6 @@ public interface ManipulacaoIterface {
 	void find(String file) throws InterruptedException, IOException;
 	void findWord(String word) throws InterruptedException, IOException;
 	void write(String file) throws InterruptedException, IOException;
+	void replace(String word, String replace) throws InterruptedException, IOException;
 	
 }

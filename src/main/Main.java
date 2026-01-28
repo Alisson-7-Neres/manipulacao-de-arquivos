@@ -22,7 +22,8 @@ public class Main {
 						   "\n4 - Procurar" +
 						   "\n5 - Procurar por palavra" +
 						   "\n6 - Escrever" +
-						   "\n7 - Sair" +
+						   "\n7 - Substituir" +
+						   "\n8 - Sair" +
 						    "\n-> ");
 		int selected = inputOption.nextInt();
 		MenuOption selectedOption = MenuOption.values()[selected - 1];
@@ -34,6 +35,7 @@ public class Main {
 		case FIND -> find();
 		case FINDWORD -> findWord();
 		case WRITE -> write();
+		case REPLACE -> replace();
 		case EXIT -> System.exit(0);
 		}
 	}
@@ -78,5 +80,18 @@ public class Main {
 		//manipulacaoService.find(file);
 		manipulacaoService.write(file);
 	}
+	
+	public static void replace() throws InterruptedException, IOException {
+		Scanner inputReplace = new Scanner(System.in);
+		Scanner inputWord = new Scanner(System.in);
+		
+		System.out.println("Qual palavra deseja substituir? ");
+		String word = inputWord.nextLine(); 
+		
+		System.out.println("Por qual?");
+		String replace = inputReplace.nextLine();
+		
+		manipulacaoService.replace(word,replace);
+		}
 }
 

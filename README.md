@@ -6,4 +6,4 @@
 - [X] Procurar
 - [X] Escrever no arquivo
 - [X] Procurar palavras
-- [] Substituir palavras
+- [X] Substituir palavras
