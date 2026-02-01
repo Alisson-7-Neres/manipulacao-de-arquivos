@@ -54,7 +54,7 @@ public class Main {
 		manipulacaoService.remove(remove);
 	}
 	
-	public static void findAll() {
+	public static void findAll() throws InterruptedException, IOException {
 		manipulacaoService.findAll();
 	}
 	
@@ -72,7 +72,7 @@ public class Main {
 		manipulacaoService.findWord(word);
 	}
 	
-	public static void write() throws InterruptedException {
+	public static void write() throws InterruptedException, IOException {
 		findAll();
 		Scanner inputFile = new Scanner(System.in);
 		System.out.println("Qual o nome do arquivo: ");
